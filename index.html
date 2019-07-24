@@ -1,0 +1,114 @@
+<!--    * -->
+<!--   *** -->
+<!--  ***** -->
+<!-- ******* -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>輸入聖誕樹的高度，然後用*組合出來</title>
+</head>
+
+<body>
+    <div id="ChristmasTree"></div>
+    <script>
+
+        // ※ 注意要用全形的＊和全形的空白 ※
+
+        // 分解動作
+        // 1. 觀察列和星星數量的變化: 星星數量 = 最終列 + 最終列 - 1
+        //    1＝>1、2=>3、3=>5、4=>7、5=>9
+        // 2. 觀察列和空白數量的變化: 假設以四列舉例
+        //    第一列：1=>3、5=>7
+        //    第二列：1=>2、6=>7
+        //    第三列：1=>1、7=>7
+        //    第四列：
+        // 3. 觀察星星中間位置: 中間位置 = 最終列
+        var n = 8;
+        var txt = "";
+        for (var i = 1; i <=n; i++) {
+            txt = "";
+            for (var j = i; j < n; j++) {
+                //document.write(j % 2);
+                txt += " ";
+                //document.write(txt);
+            }
+            for(var k=0;k<(2*i)-1;k++){
+                txt += "*";
+                //document.write("*");
+            }
+            document.write("<br/>");
+            document.write(txt);
+        }
+
+
+        document.write(output+"<br/>");
+        var ChristmasTree = document.getElementById("ChristmasTree");
+        var hash = "#";
+        var output = "";
+        var limit = 20;
+        var middle = limit/2;
+        for(i=0;i<middle;i++){
+            for(j=0;j<limit;j++){
+                if(j==middle){
+                    if(i==0){
+                        output += "*";
+                    }else{
+                        output += "#";
+                    }
+                }
+                else{
+                    if(j>=(middle - i) && j<= (middle+i)){
+                        output += "#";
+                    }else{
+                        output += "&nbsp;&nbsp;";
+                    }
+                }
+                
+            }
+            document.write(output+"<br/>");
+            //ChristmasTree.innerHTML += output + "<br/>";
+            output = "";
+        }
+        
+        // for(i=0;i<limit;i++){
+        //     if(i == (middle-4)){
+        //         output += "|&nbsp;&nbsp;&nbsp;|";
+        //     }else{
+        //         if(i == limit/3-5){
+        //             output += "[&nbsp;&nbsp;&nbsp;]";
+        //         }else{
+        //             output += "&nbsp;&nbsp;";
+        //         }
+        //     }
+        //     if(i == (middle + 2)){
+        //         output += "[&nbsp;&nbsp;&nbsp;]";
+        //     }
+        // }
+
+        //ChristmasTree.innerHTML += output + "<br/>";
+        
+        document.write("<br/>");
+        var cnt = 10;
+        for(i=0;i<cnt;i++){
+            for(j=cnt;j>0;j--){
+                if(j>i){
+                    document.write("&nbsp;&nbsp;");
+                }else{
+                    document.write("#");
+                }
+            }
+            for(j=0;j<cnt;j++){
+                if(j>i){
+                    document.write("&nbsp;&nbsp;");
+                }else{
+                    document.write("#");
+                }
+            }
+            document.write("<br/>");
+        }
+    </script>
+</body>
+
+</html>
